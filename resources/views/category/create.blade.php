@@ -11,7 +11,7 @@
     <div class="form-group">
         <label for="slug">Slug</label>
         <input type="text" name="slug" id="slug" class="form-control">
-        <small class="d-block text-muted">分類的英文</small>
+        <small class="d-block text-muted">分類的英文名稱</small>
     </div>
 
     <input type="submit" value="新增分類" class="btn btn-primary">
