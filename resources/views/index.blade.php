@@ -34,9 +34,7 @@
     <a href="#">
       {{$post->user->name}}
     </a>
-    {{-- <a href="#">
-        {{$post->Category->title}}
-      </a> --}}
+
 
 
   </div>
