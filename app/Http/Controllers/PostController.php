@@ -174,7 +174,7 @@ class PostController extends Controller
         return redirect()->route('trash.index');
 
     }
-    public function deleteTrash($id){
+    public function deleteTrash(Request $request,$id){
         Post::onlyTrashed()->find($id)->forceDelete();
         return redirect()->route('trash.index');
     }

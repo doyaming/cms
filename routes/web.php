@@ -34,6 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/trash', 'PostController@getAllTrash')->name('trash.index');
 Route::get('/trash/{id}/restore', 'PostController@restoreTrash')->name('trash.restore');
-Route::get('/trash/{id}', 'PostController@deleteTrash')->name('trash.delete');
+// Route::get('/trash/{id}', 'PostController@deleteTrash')->name('trash.delete');
+route::delete('/trash/{id}', 'PostController@deleteTrash')->name('trash.delete');
 
 
