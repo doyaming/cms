@@ -28,7 +28,7 @@
     <div class="row">
 
       <!-- Blog Entries Column -->
-      <div class="col-md-15">
+      <div class="col-md-12">
 
 
         @yield('main')
@@ -58,7 +58,7 @@
       </div>
 
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-10">
+      <div class="col-md-4">
 
         <!-- Search Widget -->
         {{--@include('template.sidebar.search')--}}
