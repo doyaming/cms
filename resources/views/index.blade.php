@@ -19,6 +19,7 @@
 
   <div class="card-body">
     <h2 class="card-title">{{$post->title}}</h2>
+    <span class="badge badge-secondary">{{$post->category->title}}</span>
     <p class="card-text">
       {!! Str::limit(strip_tags($post->content), 200) !!}
     </p>
