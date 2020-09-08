@@ -74,7 +74,7 @@ class PostController extends Controller
         $post = new Post;
         $post->fill($request->all());
         $post->user_id = Auth::id();
-        $post->cate_id = $request->cate_id;
+        $post->category_id = $request->category_id;
         $post->cover = $cover_name;
         $post->save();
 
@@ -158,8 +158,15 @@ class PostController extends Controller
         // $post->delete();
 
         // $post->delete();
-        Storage::delete('public/images/'.$post->cover);
+        // Storage::delete('public/images/'.$post->cover);
         Post::destroy($post->id);
         return redirect('/');
+    }
+    public function getAllTrash(){
+
+        $posts = Post::onlyTrashed()->get();
+
+        return view('posts.trash',compact('posts'));
+
     }
 }

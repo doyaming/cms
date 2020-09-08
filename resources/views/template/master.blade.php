@@ -28,13 +28,13 @@
     <div class="row">
 
       <!-- Blog Entries Column -->
-      <div class="col-md-8">
+      <div class="col-md-15">
 
 
         @yield('main')
 
         <!-- Blog Post -->
-        <!-- 
+        <!--
         <div class="card mb-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
@@ -49,23 +49,23 @@
         </div>
          -->
 
-       
 
-        
+
+
 
         <!-- Pagination -->
 
       </div>
 
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-4">
+      <div class="col-md-10">
 
         <!-- Search Widget -->
-        @include('template.sidebar.search')
-        
+        {{--@include('template.sidebar.search')--}}
+
         <!-- Categories Widget -->
-        @include('template.sidebar.category')
-        
+        {{--@include('template.sidebar.category')--}}
+
 
         <!-- Side Widget -->
 
