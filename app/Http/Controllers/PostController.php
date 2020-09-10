@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -21,6 +22,8 @@ class PostController extends Controller
         // $posts = Post::get();
         $posts = Post::orderBy('id','DESC')->get();
         return view('index',compact('posts'));
+        // $posts = Post::all();
+            // return $posts;
     }
 
     /**
@@ -78,11 +81,19 @@ class PostController extends Controller
         $post->cover = $cover_name;
         $post->save();
 
+        $tags = explode(',',$request->tag);
+        foreach($tags as $tag){
+            $tagModel = Tag::firstOrCreate(['title' => $tag]);
+            $post->tags()->attach($tagModel -> id);
+        }
+
         // 方法三
         // Post::create($request->all());
 
 
         return redirect('/');
+
+        // return $request->all();
 
 
 
@@ -163,16 +174,15 @@ class PostController extends Controller
         return redirect('/');
     }
     public function getAllTrash(){
-
         $posts = Post::onlyTrashed()->get();
-
+        // $posts = Post::withTrashed()->get();
         return view('posts.trash',compact('posts'));
-
+        // return $posts;
     }
     public function restoreTrash($id){
-        post::onlyTrashed()->find($id)->restore();
-        return redirect()->route('trash.index');
+        Post::onlyTrashed()->find($id)->restore();
 
+        return redirect()->route('trash.index');
     }
     public function deleteTrash(Request $request,$id){
         Post::onlyTrashed()->find($id)->forceDelete();

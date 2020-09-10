@@ -15,7 +15,11 @@
         <input type="text" name="title" id="title" class="form-control" value="{{old('title')}}">
     </div>
     <div class="form-group">
-        <label for="category_id"></label>
+        <label for="tag">標籤</label>
+        <input type="text" name="tag" id="tag" class="form-control" value="{{old('tag')}}">
+    </div>
+    <div class="form-group">
+        <label for="category_id">分類</label>
         <select name="category_id" id="category_id" class="form-control">
         @foreach($categories as $cate)
             <option value="{{$cate->id}}">{{$cate->title}}</option>
