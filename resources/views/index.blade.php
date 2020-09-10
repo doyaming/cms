@@ -19,6 +19,13 @@
 
   <div class="card-body">
     <h2 class="card-title">{{$post->title}}</h2>
+    <div>
+      @foreach($post->tags as $tag)
+        <span class="badge badge-info">
+         {{$tag->title}}
+        </span>
+      @endforeach
+    </div>
     <span class="badge badge-secondary">{{$post->category->title}}</span>
     <p class="card-text">
       {!! Str::limit(strip_tags($post->content), 200) !!}
@@ -36,6 +43,11 @@
       {{$post->user->name}}
     </a>
   </div>
+</div>
+<div>
+  @foreach($post->tags as $tag)
+  {{$tag->title}},
+  @endforeach
 </div>
 @endforeach
 
